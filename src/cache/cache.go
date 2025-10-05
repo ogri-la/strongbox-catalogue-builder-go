@@ -2,9 +2,11 @@ package cache
 
 import (
 	"bufio"
+	"bytes"
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"net/http/httputil"
 	"os"
@@ -14,7 +16,7 @@ import (
 
 // CacheConfig holds cache configuration
 type CacheConfig struct {
-	Directory      string
+	Directory       string
 	DefaultTTLHours int
 	SearchTTLHours  int
 }
@@ -42,10 +44,12 @@ func (t *FileCachingTransport) RoundTrip(req *http.Request) (*http.Response, err
 
 	// Try to read from cache first
 	if cachedResp, err := t.readCacheEntry(cacheKey); err == nil && !t.cacheExpired(cachePath) {
+		slog.Info("cache hit", "url", req.URL.String())
 		return cachedResp, nil
 	}
 
 	// Not in cache or expired, make real request
+	slog.Info("fetching", "url", req.URL.String())
 	resp, err := t.transport.RoundTrip(req)
 	if err != nil {
 		return resp, err
@@ -98,24 +102,24 @@ func (t *FileCachingTransport) cacheExpired(path string) bool {
 
 	// Determine TTL based on cache key suffix
 	ttlHours := t.config.DefaultTTLHours
-	if filepath.Base(path) == "-search" {
+	base := filepath.Base(path)
+	if base == "-search" || filepath.Ext(base) == "-search" {
 		ttlHours = t.config.SearchTTLHours
 	}
 
 	age := t.runStart.Sub(stat.ModTime())
-	return int(age.Hours()) >= ttlHours
+	return age >= time.Duration(ttlHours)*time.Hour
 }
 
 // readCacheEntry reads a cached HTTP response
 func (t *FileCachingTransport) readCacheEntry(cacheKey string) (*http.Response, error) {
 	path := t.cachePath(cacheKey)
-	file, err := os.Open(path)
+	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
-	defer file.Close()
 
-	return http.ReadResponse(bufio.NewReader(file), nil)
+	return http.ReadResponse(bufio.NewReader(bytes.NewReader(data)), nil)
 }
 
 // writeCacheEntry writes an HTTP response to cache
@@ -127,17 +131,14 @@ func (t *FileCachingTransport) writeCacheEntry(cacheKey string, resp *http.Respo
 		return fmt.Errorf("failed to create cache directory: %w", err)
 	}
 
-	file, err := os.Create(path)
-	if err != nil {
-		return fmt.Errorf("failed to create cache file: %w", err)
-	}
-	defer file.Close()
-
 	dumpedBytes, err := httputil.DumpResponse(resp, true)
 	if err != nil {
 		return fmt.Errorf("failed to dump response: %w", err)
 	}
 
-	_, err = file.Write(dumpedBytes)
-	return err
+	if err := os.WriteFile(path, dumpedBytes, 0644); err != nil {
+		return fmt.Errorf("failed to write cache file: %w", err)
+	}
+
+	return nil
 }

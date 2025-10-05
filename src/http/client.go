@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"net/http/httptrace"
 	"time"
 )
 
@@ -40,8 +39,6 @@ func NewRealHTTPClient(transport http.RoundTripper, userAgent string) *RealHTTPC
 
 // Get performs an HTTP GET request
 func (c *RealHTTPClient) Get(ctx context.Context, url string) (*Response, error) {
-	ctx = c.withTrace(ctx)
-
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
@@ -74,15 +71,6 @@ func (c *RealHTTPClient) Get(ctx context.Context, url string) (*Response, error)
 	}, nil
 }
 
-// withTrace adds HTTP connection tracing to context
-func (c *RealHTTPClient) withTrace(ctx context.Context) context.Context {
-	return httptrace.WithClientTrace(ctx, &httptrace.ClientTrace{
-		GotConn: func(info httptrace.GotConnInfo) {
-			// Logging would be injected here in a real implementation
-		},
-	})
-}
-
 // MockHTTPClient implements HTTPClient for testing
 type MockHTTPClient struct {
 	responses map[string]*Response
@@ -95,7 +83,6 @@ func NewMockHTTPClient() *MockHTTPClient {
 	return &MockHTTPClient{
 		responses: make(map[string]*Response),
 		errors:    make(map[string]error),
-		calls:     make([]string, 0),
 	}
 }
 

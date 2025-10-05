@@ -1,3 +1,5 @@
 coverage.html
 coverage.out
 strongbox-catalogue-builder
+cache*/
+state/

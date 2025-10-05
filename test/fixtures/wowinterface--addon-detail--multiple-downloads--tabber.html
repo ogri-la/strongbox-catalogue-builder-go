@@ -1,0 +1,2334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Broker Played Time : Data Broker  : World of Warcraft AddOns</title>
+<meta property="og:title" content="Broker Played Time" />
+<meta property="og:site_name" content="WoWInterface" />
+<meta property="og:image" content="//cdn-wow.mmoui.com/preview/pvw75821.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="wow, world of warcraft, worlds of warcraft, xml, lua, interface, skins, mods, addon, addons, 5.3, 5.4, 6.0, Siege of Orgrimmar, Mists of Pandaria, Warlords of Draenor" />
+<meta name="description" content="World of Warcraft Addons, Interfaces, Skins, Mods &amp; Community." />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/clientscript/ie6.css?3"/><![endif]-->
+
+<link rel="stylesheet" type="text/css" href="//cdn-wow.mmoui.com/clientscript/vbulletin_css/style-9d77b7fc-00037.css" id="vbulletin_css" />
+
+<script type="text/javascript">
+<!--
+var SESSIONURL = "s=aa75ae419365f10f007cd2867537e6f3&";
+var SECURITYTOKEN = "95311573c7f5a13fcd8de543cd2785574b78d547";
+var IMGDIR_MISC = "//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/images/apple-webclip.jpg" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wowisearch.xml" title="WoWInterface" />
+<link rel="alternate" type="application/rss+xml" title="WoWInterface News" href="/rss/news.xml" />
+<link rel="alternate" type="application/rss+xml" title="WoWInterface Latest Interfaces" href="/rss/latest.xml" />
+<link rel="alternate" type="application/rss+xml" title="WoWInterface Latest New Interfaces" href="/rss/latest-new.xml" />
+<link rel="alternate" type="application/rss+xml" title="WoWInterface Latest Updated Interfaces" href="/rss/latest-updated.xml" />
+<link rel="alternate" type="application/rss+xml" title="WoWInterface Weekly Picks" href="/rss/pickofweek.xml" />
+<link rel="alternate" type="application/rss+xml" title="WoWInterface Latest Threads" href="/rss/threads.xml" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9DVL97G111"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9DVL97G111');
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script async src="//cdn-wow.mmoui.com/clientscript/jquery.cookies.2.2.0.min.js" type="text/javascript"></script>
+<script async src="//cdn-wow.mmoui.com/clientscript/jquery.overlay-1.0.1.js?v2" type="text/javascript"></script>
+<script src="//cdn-wow.mmoui.com/clientscript/jquery.lightbox.js?v2" type="text/javascript"></script>
+<script src="//cdn-wow.mmoui.com/clientscript/site-start.js?v4" type="text/javascript"></script>
+<script src="//cdn-wow.mmoui.com/clientscript/vbulletin_global.js?v=3612" type="text/javascript"></script>
+<script async type="text/javascript" src="//wowjs.zamimg.com/widgets/power.js"></script><script>var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": false }</script>
+<script type="text/javascript">isIE=false;isIE6=false</script>
+<!--[if IE]><script type="text/javascript">isIE=true</script><![endif]-->
+<script data-cfasync="false">window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+<script data-cfasync="false" async src="https://s.nitropay.com/ads-1648.js"></script>
+<script type="text/javascript" src="//cdn-wow.mmoui.com/clientscript/ncode_imageresizer.js?v=1.0.1"></script>
+<style type="text/css">
+<!--
+table.ncode_imageresizer_warning {
+	background: #333;
+	color: #fff;
+	border: 1px solid #555;
+	cursor: pointer;
+}
+table.ncode_imageresizer_warning:hover {
+	background: #FFFFE1;
+	color: #000000;
+	border: 1px solid #CCC;
+	cursor: pointer;
+}
+
+table.ncode_imageresizer_warning td {
+	font-size: 10px;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+table.ncode_imageresizer_warning td.td1 {
+	padding: 5px;
+}
+
+table.ncode_imageresizer_warning td.td1 {
+	padding: 2px;
+}
+-->
+</style>
+<script type="text/javascript">
+<!--
+NcodeImageResizer.MODE = 'enlarge';
+NcodeImageResizer.MAXWIDTH = 620;
+NcodeImageResizer.MAXHEIGHT = 0;
+
+NcodeImageResizer.BBURL = 'https://www.wowinterface.com/forums';
+
+vbphrase['ncode_imageresizer_warning_small'] = 'Click this bar to view the full image.';
+vbphrase['ncode_imageresizer_warning_filesize'] = 'This image has been resized. Click this bar to view the full image. The original image is sized %1$sx%2$s and weights %3$sKB.';
+vbphrase['ncode_imageresizer_warning_no_filesize'] = 'This image has been resized. Click this bar to view the full image. The original image is sized %1$sx%2$s.';
+vbphrase['ncode_imageresizer_warning_fullsize'] = 'Click this bar to view the small image.';
+//-->
+</script>
+</head>
+<body>
+<script>
+	window['nitroAds'].createAd('anchor-btm', {
+	  "refreshTime": 15,
+	  "format": "anchor",
+	  "anchor": "bottom",
+	  "anchorPersistClose": true,
+	  "mediaQuery": "(min-width: 0px)",
+	  "report": {
+		"enabled": true,
+		"icon": false,
+		"wording": "Report Ad",
+		"position": "top-right"
+	  }
+	});
+</script>
+<a name="top"></a>
+<div id="mmoitooltipbox" style="z-index:6000;"></div>
+<div class="wrapper">
+<div class="logo">
+<a href="https://www.wowinterface.com"></a>
+</div>
+</div>
+<div class="header">
+<div class="wrapper wrapperfix">
+<nav class="navigation">
+<ul class="menu">
+<li class="item"><a href="https://www.wowinterface.com/addons.php?s=aa75ae419365f10f007cd2867537e6f3">AddOns</a>
+<ul>
+<li><a href="https://www.minion.gg"><i class="fa fa-refresh"></i> AddOn Manager</a></li><li><a href="https://www.wowinterface.com/downloads/latest.php?s=aa75ae419365f10f007cd2867537e6f3"><i class="fa fa-clock-o"></i> Latest 200</a></li><li><a href="https://www.wowinterface.com/addons.php"><i class="fa fa-folder-open"></i> Browse</a></li><li><a href="https://www.wowinterface.com/downloads/upload-update.php?s=aa75ae419365f10f007cd2867537e6f3"><i class="fa fa-upload"></i> Upload AddOn</a></li>
+<li><a href="https://www.wowinterface.com/downloads/search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;"><i class="fa fa-search"></i> Search AddOns</a></li>
+
+<li><i class="fa fa-chevron-right hassub"></i><a href><i class="fa fa-wrench"></i> Projects</a>
+<ul>
+<li><a href="https://www.wowinterface.com/listportals.php?s=aa75ae419365f10f007cd2867537e6f3"><i class="fa fa-home"></i> Author Portals</a></li>
+<li><a href="http://git.wowinterface.com"><i class="fa fa-file-code-o"></i> Git Repositories</a></li>
+<li><a href="http://svn.wowinterface.com"><i class="fa fa-file-code-o"></i> SVN Repositories</a></li>
+</ul>
+</li>
+<li><i class="fa fa-chevron-right hassub"></i><a href><i class="fa fa-cogs"></i> Options</a>
+<ul>
+<li><a href="https://www.wowinterface.com/downloads/filecpl.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=feeds"><i class="fa fa-envelope-o"></i> Email Feeds</a></li>
+<li><a href="https://www.wowinterface.com/downloads/filecpl.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=modifyoptions"><i class="fa fa-cog"></i> Preference</a></li>
+<li><a href="https://www.wowinterface.com/downloads/filecpl.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=showdlhistory"><i class="fa fa-hourglass-half"></i> Download History</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="divider"></div></li>
+<li class="item"><a href="https://www.wowinterface.com/community.php?s=aa75ae419365f10f007cd2867537e6f3">News</a></li>
+<li><div class="divider"></div></li>
+<li class="item"><a href="https://www.wowinterface.com/forums/index.php?s=aa75ae419365f10f007cd2867537e6f3">Forums</a>
+<ul>
+<li><a href="https://www.wowinterface.com/forums/search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=getnew"><i class="fa fa-newspaper-o"></i> New posts</a></li>
+<li><a href="https://www.wowinterface.com/forums/search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=getdaily"><i class="fa fa-clock-o"></i> Today's Posts</a></li>
+<li><a href="https://www.wowinterface.com/forums/search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;"><i class="fa fa-search"></i> Search Forum</a></li>
+<li><i class="fa fa-chevron-right hassub"></i><a href="https://www.wowinterface.com/forums/index.php?s=aa75ae419365f10f007cd2867537e6f3"><i class="fa fa-comments-o"></i> Categories</a>
+<ul>
+<li><a href="https://www.wowinterface.com/forums/forumdisplay.php?f=142"><i class="fa fa-comment-o"></i> General</a></li>
+<li><a href="https://www.wowinterface.com/forums/forumdisplay.php?f=8"><i class="fa fa-comment-o"></i> AddOns, Comps, Macros</a></li>
+<li><a href="https://www.wowinterface.com/forums/forumdisplay.php?f=27"><i class="fa fa-comment-o"></i> Featured Projects</a></li>
+<li><a href="https://www.wowinterface.com/forums/forumdisplay.php?f=11"><i class="fa fa-comment-o"></i> Developer</a></li>
+<li><a href="https://www.wowinterface.com/forums/forumdisplay.php?f=4"><i class="fa fa-comment-o"></i> Site Forums</a></li>
+</ul>
+</li>
+<li><a href="https://www.wowinterface.com/forums/forumdisplay.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=markread"><i class="fa fa-times"></i> Mark Forums Read</a></li>
+<li><a href="https://www.wowinterface.com/forums/subscription.php?s=aa75ae419365f10f007cd2867537e6f3" rel="nofollow"><i class="fa fa-thumbs-o-up"></i> Subscribed Threads</a></li>
+<li><a href="#" onclick="window.open('https://www.wowinterface.com/forums/misc.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=buddylist&amp;focus=1','buddylist','statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300'); return false;"><i class="fa fa-users"></i> Open Buddy List</a></li>
+<li><a href="https://www.wowinterface.com/forums/memberlist.php?s=aa75ae419365f10f007cd2867537e6f3&amp;"><i class="fa fa-users"></i> Members List</a></li>
+</ul>
+</li>
+<li><div class="divider"></div></li>
+<li class="item"><a href="https://www.wowinterface.com/forums/faq.php?s=aa75ae419365f10f007cd2867537e6f3">Help</a></li>
+<li><div class="divider"></div></li>
+<li class="login"><a href="https://www.wowinterface.com/login.php" rel="nofollow"><i class="fa fa-sign-in"></i> Login</a></li>
+<li class="signup"><a href="https://www.wowinterface.com/forums/register.php?s=aa75ae419365f10f007cd2867537e6f3" rel="nofollow">Sign up</a></li>
+<li><div class="divider"></div></li>
+<li>
+<form name="downloadsearch" action="/downloads/search.php" method="post">
+<div class="searchinput">
+<div class="spyglass"><input type="image" src="/images/style_mmoi_wowi2/layout/spyglass.png" style="width:18px; height:17px; border:none" alt="Search" value="Go"></div>
+<input tabindex="1" type="text" name="search" maxlength="35" value="AddOns..." onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" style="background-image: none; background-position: 0% 0%; background-repeat: repeat;">
+</div>
+</form>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="wrapper wrapperfix">
+<div class="header-filler-ad"></div>
+</div>
+<div class="wrapper">
+<div id="wrapper-noads">
+<div id="header-ad"><div id="header-inner-ad"><div class="horz-atf">
+<div id="Horizontal_ATF"></div>
+<script>
+window['nitroAds'].createAd('Horizontal_ATF', {
+  "refreshLimit": 20,
+  "refreshTime": 30,
+  "renderVisibleOnly": false,
+  "refreshVisibleOnly": true,
+  "sizes": [
+    [
+      "728",
+      "90"
+    ],
+    [
+      "970",
+      "90"
+    ],
+    [
+      "970",
+      "250"
+    ]
+  ],
+  "report": {
+    "enabled": true,
+    "icon": false,
+    "wording": "Report Ad",
+    "position": "bottom-right"
+  }
+});
+</script>
+</div>
+<script>
+window['nitroAds'].createAd('Video_ATF', {
+  "refreshLimit": 0,
+  "refreshTime": 30,
+  "format": "floating",
+  "report": {
+    "enabled": true,
+    "icon": false,
+    "wording": "Report Ad",
+    "position": "bottom-right"
+  }
+});
+</script></div></div>
+<div class="page clearfix">
+
+<div style="padding:0px 8px 0px 8px">
+<div class="navbar" style="padding: 10px 0 10px 0"><a href="index.php?s=aa75ae419365f10f007cd2867537e6f3" accesskey="1"><i class="fa fa-cog"></i></a> <span class="navbar"><a href="index.php?s=aa75ae419365f10f007cd2867537e6f3" accesskey="1">World of Warcraft AddOns</a></span>
+<span class="navbar">&raquo; <a href="index.php?cid=23">Stand-Alone Addons</a></span>
+<span class="navbar">&raquo; <a href="index.php?cid=109">Info, Plug-in Bars</a></span>
+<span class="navbar">&raquo; <a href="index.php?cid=108">Data Broker</a></span>
+&raquo; <strong>
+Broker Played Time
+</strong></div>
+<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead" nowrap="nowrap">Go to Page...</td>
+</tr>
+<tr>
+<td class="vbmenu_option" title="nohilite">
+<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+</form>
+</td>
+</tr>
+</table>
+</div>
+<div id="innerpage">
+<script type="text/javascript">
+    $(document).ready(function(){		
+        $(".lightbox").lightbox({
+            fitToScreen: true,
+            scaleImages: true,
+            displayDownloadLink: true
+        });
+    });
+    </script>
+
+<script language="JavaScript">
+    $(function() { 
+        $("#DonateOverlay").overlay({finish: {top: 300, left: 50, absolute: true}});
+    });
+    </script>
+<![endif]- ->
+<noscript><style type="text/css">
+    <!--
+    .boxtab-section-hide {
+        margin-top: 6px;
+        display: block;
+    }
+    .boxtablist {
+        display: none;
+    }
+    #securelink {
+        display: none;
+    }
+    #non-securelink {
+        display: block;
+    }
+    -->
+    </style></noscript>
+<div class="tabwrapper" id="tabwrapper">
+<div class="boxtablist">
+<li class="current" onclick="tablistview(this.childNodes[0]);"><a id="info_tab" href="javascript:;" onclick="tablistview(this);">Addon Info.</a></li>
+<li onclick="tablistview(this.childNodes[0]);"><a id="changelog_tab" href="javascript:;" onclick="tablistview(this);">Change Log</a></li>
+<li onclick="tablistview(this.childNodes[0]);"><a id="other_tab" href="javascript:;" onclick="tablistview(this);">Other Files (21)</a></li>
+<li onclick="tablistview(this.childNodes[0]);"><a id="comments_tab" href="javascript:;" onclick="tablistview(this);">Comments (45)</a></li>
+</div>
+<div id="lvert-effect"></div>
+<div id="lhorz-effect">
+<div id="managementlinks"> </div>
+</div>
+<div style="clear:both;" /></div>
+<div class="boxtab-section" id="info_t">
+<div id="fileinfo">
+<div>
+<div class="infobox">
+<div id="downloadbutton">
+<div id="iconnew">
+<a href="/downloads/landing.php?s=aa75ae419365f10f007cd2867537e6f3&amp;fileid=16711" title="WoW Retail"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/downloads/download-arrow-icon.png" width="60" height="53" border="0" alt="Download" /></a>
+</div>
+<div id="download">
+<div id="size">(16Kb)</div>
+<a href="/downloads/landing.php?s=aa75ae419365f10f007cd2867537e6f3&amp;fileid=16711" title="WoW Retail">Download</a>
+</div>
+<div id="multitoc">Compatible with Retail, Classic & TBC</div><div id="safe">Updated: 03-22-24 04:59 PM</div>
+</div>
+<div id="cubeAd" style="padding-bottom: 20px">
+<div id="Vertical_ATF"></div>
+<script>
+                        window['nitroAds'].createAd('Vertical_ATF', {
+                          "refreshLimit": 20,
+                          "refreshTime": 30,
+                          "renderVisibleOnly": false,
+                          "refreshVisibleOnly": true,
+                          "sizes": [
+                            [
+                              "300",
+                              "250"
+                            ],
+                            [
+                              "160",
+                              "600"
+                            ],
+                            [
+                              "300",
+                              "600"
+                            ]
+                          ],
+                          "report": {
+                            "enabled": true,
+                            "icon": false,
+                            "wording": "Report Ad",
+                            "position": "bottom-right"
+                          }
+                        });
+                        </script>
+</div>
+<div id="buttonbox"><div class="tombox">
+<div><div class="tomboxinner" id="addfav">
+<a href="/login.php">Add Favorite</a>
+</div>
+<div class="tomboxinner" id="help">
+<a href="http://faq.wowinterface.com">Install Help</a>
+</div></div>
+<div><div class="tomboxinner" id="portal">
+<a href="https://www.wowinterface.com/portal.php?s=aa75ae419365f10f007cd2867537e6f3&amp;uid=337867">Portal</a>
+</div>
+<div class="tomboxinner" id="bugs">
+<a href="https://www.wowinterface.com/portal.php?s=aa75ae419365f10f007cd2867537e6f3&amp;uid=337867&amp;a=listbugs">Bugs</a>
+</div>
+<div class="tomboxinner" id="features">
+<a href="https://www.wowinterface.com/portal.php?s=aa75ae419365f10f007cd2867537e6f3&amp;uid=337867&amp;a=listfeatures">Features</a>
+</div></div>
+</div></div>
+<div id="screen-info">
+<div class="tombox">
+<div class="tomboxinner">
+<div class="TheTabs">
+<div class="TabHead activeTabHead" id="tabH0" onclick="showTab(this);">Pictures</div> <div class="TabHead " id="tabH1" onclick="showTab(this);">File Info</div>
+</div>
+<div id="lvert-effect-sm"></div>
+<div id="lhorz-effect-sm"></div>
+<div style="clear:all;" /></div>
+<div class="TabTab" id="tabB0">
+<div class="fileinfo-pics">
+<div style="padding-top:5px">
+<div><a href="//cdn-wow.mmoui.com/preview/pvw75821.png" class="lightbox" rel="filepics" title="Options example 1"><img src="//cdn-wow.mmoui.com/preview/pvw75821_thumb.png" alt /></a></div>
+<div><a href="//cdn-wow.mmoui.com/preview/pvw75822.png" class="lightbox" rel="filepics" title="Options example 2" style="display:none"><img src="//cdn-wow.mmoui.com/preview/pvw75822_thumb.png" alt /></a></div>
+<a href="//cdn-wow.mmoui.com/preview/pvw75821.png" class="lightbox" rel="filepics">View 2 Screenshots</a>
+</div>
+</div>
+</div>
+<div class="TabTab" id="tabB1">
+<table cellpadding="5" cellspacing="0" border="0" width="100%">
+<tr>
+<td class="alt1 titletext" valign="top">Compatibility:</td><td class="alt1"><div>Plunderstorm (10.2.6)</div><div>Classic (1.15.1)</div><div>WOTLK Patch (3.4.3)</div><div>TBC Patch (2.5.4)</div></td>
+</tr>
+<tr>
+<td class="alt2 titletext">Updated:</td><td class="alt2">03-22-24 04:59 PM</td>
+</tr>
+<tr>
+<td class="alt1 titletext">Created:</td><td class="alt1">05-14-10 12:14 PM</td>
+</tr>
+<tr>
+<td class="alt2 titletext">Downloads:</td><td class="alt2">8,522</td>
+</tr>
+<tr>
+<td class="alt1 titletext">Favorites:</td><td class="alt1">43</td>
+</tr>
+<tr>
+<td class="alt2 titletext">MD5:</td><td class="alt2"><input class="bginput" type="text" size="18" readonly="readonly" value="74a57b977aa3dc108ca47ce0365c33c8" /></td>
+</tr>
+<tr>
+<td class="alt1 titletext" valign="top">Categories:</td><td class="alt1"><b><a href="cat108.html">Data Broker</a></b>, <a href="cat18.html">Character Advancement</a></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="divline">
+<div id="patch"><abbr title="Compatible with the latest game version!">10.2.6</abbr></div>
+<h1>Broker Played Time&nbsp; <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/downloads/popular.gif" border="0" alt="Popular! (More than 5000 hits)"></h1>
+</div>
+<div id="author">
+<div id="version">Version: 10.2.6.0</div>by: <a href="https://www.wowinterface.com/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=getinfo&amp;userid=337867"><b>LudiusMaximus</b></a>, <a href="https://www.wowinterface.com/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=getinfo&userid=28751">Phanx</a>
+</div>
+<div class="postmessage"><p><font color="#FFAA00"><font size="3">DataBroker plugin to track played time across all your characters.</font></font><br/>
+<blockquote>It differs from similar addons in that it only tracks played time; it does not track other things like experience or money.<br/>
+<br/>
+The tooltip lists all of your characters across both factions on all servers. The current character is listed first for quick reference. Character names are colored by class. Faction icons, class icons, and character levels can also be shown if desired.<br/>
+<br/>
+Right-click the plugin for options.</blockquote><font color="#FFAA00"><font size="3">Language Support</font></font><br/>
+<blockquote>Works in all locales. Translated into English, Deutsch, Español, Français, Italiano, Português, &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;, &#54620;&#44397;&#50612;, &#31616;&#20307;&#20013;&#25991;, and &#27491;&#39636;&#20013;&#25991;.<br/>
+<br/>
+To add or update translations for any locale, enter them on the <a href="https://www.curseforge.com/wow/addons/broker-playedtime/localization/" target="_blank" rel="nofollow">Broker Played Time localization</a> page on CurseForge, and then leave a comment, or <a href="https://www.wowinterface.com/forums/private.php?do=newpm&amp;u=337867">send me a PM</a> here or <a href="https://www.curseforge.com/private-messages/send?recipient=LudiusMaximus" target="_blank" rel="nofollow">on CurseForge</a>, to let me know that you’ve made changes. If you don’t have a Curse account and don’t want to create one, you can PM me your translations instead. Thanks!</blockquote><font color="#FFAA00"><font size="3">Option examples</font></font><br/>
+<br/>
+<img src="https://cdn-wow.mmoui.com/preview/pvw75821.png" border="0" alt onload="NcodeImageResizer.createOn(this);" /><br/>
+<img src="https://cdn-wow.mmoui.com/preview/pvw75822.png" border="0" alt onload="NcodeImageResizer.createOn(this);" /></p></div>
+</div>
+</div>
+</div>
+<div class="boxtab-section-hide" id="changelog_t">
+<div class="postmessage">### 10.2.6.0 (2024-03-22 23:58:48 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.2.5.0...10.2.6.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...5.0...10.2.6.0</a>)<br/>
+TOC file bumps to 10.2.6 (retail) and 1.15.1 (classic).<br/>
+<br/>
+### 10.2.5.0 (2024-01-17 10:22:00 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.2.0.1...10.2.5.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...0.1...10.2.5.0</a>)<br/>
+TOC file bump to 10.2.5.<br/>
+<br/>
+### 10.2.0.1 (2023-11-21 08:57:46 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.2.0.0...10.2.0.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...0.0...10.2.0.1</a>)<br/>
+Classic TOC file bump to 1.15.0.<br/>
+<br/>
+### 10.2.0.0 (2023-11-12 00:19:58 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.1.7.1...10.2.0.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...7.1...10.2.0.0</a>)<br/>
+TOC file bump to 10.2.0.<br/>
+<br/>
+### 10.1.7.1 (2023-10-16 01:47:39 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.1.7.0...10.1.7.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...7.0...10.1.7.1</a>)<br/>
+TOC file bump for Classic Wrath to 3.4.3.<br/>
+<br/>
+### 10.1.7.0 (2023-09-08 09:07:33 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.1.5.2...10.1.7.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...5.2...10.1.7.0</a>)<br/>
+TOC file bump to 10.1.7.<br/>
+<br/>
+### 10.1.5.2 (2023-08-23 19:44:20 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.1.5.1...10.1.5.2" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...5.1...10.1.5.2</a>)<br/>
+TOC file bump for Classic 1.14.4.<br/>
+<br/>
+### 10.1.5.1 (2023-07-18 23:56:30 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.1.5.0...10.1.5.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...5.0...10.1.5.1</a>)<br/>
+Added new options.<br/>
+<br/>
+### 10.1.5.0 (2023-07-12 22:15:14 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.1.0.0...10.1.5.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...0.0...10.1.5.0</a>)<br/>
+TOC file bumps to retail 10.1.5 and wrath classic 3.4.2.<br/>
+<br/>
+### 10.1.0.0 (2023-05-04 08:46:25 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.0.7.0...10.1.0.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...7.0...10.1.0.0</a>)<br/>
+TOC file bumps for retail 10.1.0 and Wrath 3.4.1.<br/>
+<br/>
+### 10.0.7.0 (2023-04-05 09:34:35 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.0.5.0...10.0.7.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...5.0...10.0.7.0</a>)<br/>
+TOC file bump to 10.0.7.<br/>
+<br/>
+### 10.0.5.0 (2023-03-19 01:34:16 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/10.0.2.0...10.0.5.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...2.0...10.0.5.0</a>)<br/>
+TOC file bump to 10.0.5.<br/>
+<br/>
+### 10.0.2.0 (2022-11-26 01:06:12 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.2.7.0...10.0.2.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro...7.0...10.0.2.0</a>)<br/>
+Added Wrath toc and mainline toc bump to 10.0.2.<br/>
+<br/>
+### 9.2.7.0 (2022-08-30 17:42:57 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.2.5.1...9.2.7.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....5.1...9.2.7.0</a>)<br/>
+TOC file bump to Retail 9.2.7.<br/>
+<br/>
+### 9.2.5.1 (2022-06-12 11:28:43 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.2.5.0...9.2.5.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....5.0...9.2.5.1</a>)<br/>
+TOC file bumps: Classic 1.14.3, BCC 2.5.4<br/>
+<br/>
+### 9.2.5.0 (2022-06-12 10:47:06 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.2.0.0...9.2.5.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....0.0...9.2.5.0</a>)<br/>
+TOC file bump to 9.2.5.<br/>
+<br/>
+### 9.2.0.0 (2022-02-23 12:55:09 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.1.5.1...9.2.0.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....5.1...9.2.0.0</a>)<br/>
+TOC file bump for Retail 9.2.0.0.<br/>
+<br/>
+### 9.1.5.1 (2021-11-23 11:11:40 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.1.5.0...9.1.5.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....5.0...9.1.5.1</a>)<br/>
+TOC file bump for Classic 1.14.1.<br/>
+<br/>
+### 9.1.5.0 (2021-11-06 23:24:09 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.1.0.1...9.1.5.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....0.1...9.1.5.0</a>)<br/>
+TOC file bumps: Retail 9.1.5, Classic 1.14.0<br/>
+<br/>
+### 9.1.0.1 (2021-09-06 00:47:27 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.1.0...9.1.0.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....1.0...9.1.0.1</a>)<br/>
+BCC TOC file bump.<br/>
+<br/>
+### 9.1.0 (2021-07-02 00:55:26 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.0.5.1...9.1.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....0.5.1...9.1.0</a>)<br/>
+Retail TOC file bump to 9.1.0.<br/>
+<br/>
+### 9.0.5.1 (2021-06-07 08:57:07 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.0.5.0...9.0.5.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....5.0...9.0.5.1</a>)<br/>
+Added toc files for classic.<br/>
+<br/>
+### 9.0.5.0 (2021-03-10 09:47:26 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.0.2.0...9.0.5.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....2.0...9.0.5.0</a>)<br/>
+Minor spelling correction and TOC file bump to 9.0.5.<br/>
+<br/>
+### 9.0.2.0 (2020-11-23 22:19:51 +0100) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/9.0.1.0...9.0.2.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....1.0...9.0.2.0</a>)<br/>
+TOC file bump to 9.0.2.<br/>
+<br/>
+### 9.0.1.0 (2020-10-05 23:26:26 +0200) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/7.1.0.0...9.0.1.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....0.0...9.0.1.0</a>)<br/>
+Ready for Shadowlands level squish.<br/>
+<br/>
+### 7.1.0.0 (2016-10-31 07:31:24 -0700) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/7.0.3.1...7.1.0.0" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....3.1...7.1.0.0</a>)<br/>
+Updated for WoW 7.1<br/>
+<br/>
+### 7.0.3.1 (2016-09-18 16:58:54 -0800) ###<br/>
+(<a href="https://github.com/LudiusMaximus/Broker_PlayedTime/compare/7.0.3.0...7.0.3.1" target="_blank" rel="nofollow">https://github.com/LudiusMaximus/Bro....3.0...7.0.3.1</a>)<br/>
+- Added an option to hide other realms in the tooltip<br/>
+- Fixed the Broker text for characters with less than 1 hour played<br/>
+<br/>
+### 7.0.3.0 (2016-07-23 22:47:19 -0700) ###<br/>
+Updated for WoW 7.0<br/>
+<br/>
+### 6.0.2.67 ###<br/>
+Updated for WoW 6.0<br/>
+<br/>
+### 5.4.7.61 ###<br/>
+Broker text now shows the current character's played time<br/>
+<br/>
+### 5.4.7.58 ###<br/>
+Fixed an error that occurred when removing the last character for a particular realm<br/>
+<br/>
+### 5.4.1.55 ###<br/>
+Updated for WoW 5.4<br/>
+<br/>
+### 5.3.0.54 ###<br/>
+Updated for WoW 5.3<br/>
+<br/>
+### 5.2.0.52 ###<br/>
+Updated for WoW 5.2<br/>
+<br/>
+### 5.1.0.50 ###<br/>
+Updated for WoW 5.1<br/>
+<br/>
+### 5.0.4.49 ###<br/>
+Updated for WoW 5.0.4<br/>
+<br/>
+### 4.3.4.44 ###<br/>
+Compatible with both 4.3.4 live realms and Mists of Pandaria beta realms.<br/>
+- Added some space between icons in the tooltip.<br/>
+- Reduced the size of class icons in the tooltip slightly.<br/>
+- Removed the faction icon files from the addon folder, and use ones built into the game client instead.<br/>
+<br/>
+### 4.3.4.43 ###<br/>
+Compatible with both 4.3.4 live realms and Mists of Pandaria beta realms.<br/>
+- Added Italian localization.<br/>
+<br/>
+### 4.2.0.31 ###<br/>
+Updated for WoW 4.2<br/>
+<br/>
+### 4.1.0.30 ###<br/>
+- Fixed a bug that prevented the first character on a server from being removed<br/>
+- Updated Russian translations from YOti @ CurseForge<br/>
+- Updated for WoW 4.1<br/>
+<br/>
+### 4.0.6.26 ###<br/>
+- Added a right-click menu for changing settings and removing characters<br/>
+- Added í•œêµ*ì–´, ç®€ä½“ä¸*æ–‡, and æ*£é«”ä¸*æ–‡ translations<br/>
+- Removed the options panel, since itâ€™s no longer needed<br/>
+<br/>
+### 4.0.6.23 ###<br/>
+- Fixed some bugs with the options panel<br/>
+- Added FranÃ§ais and Ð*ÑƒÑÑÐºÐ¸Ð¹ translations<br/>
+<br/>
+### 4.0.6.21 ###<br/>
+- Changed the slash command to open the options panel when no character name is entered<br/>
+<br/>
+### 4.0.3.14 ###<br/>
+- Added full localization support<br/>
+- Added Deutsch and EspaÃ±ol translations<br/>
+<br/>
+### 4.0.1.10 ###<br/>
+- Added TOC metadata for the Curse Client<br/>
+<br/>
+### 3.3.3.6 ###<br/>
+- Now uses default game textures for all class icons<br/>
+- It is recommended that you delete the previous version before updating, as some files have been removed.<br/>
+<br/>
+### 3.3.3.4 ###<br/>
+- Hide the â€œtime playedâ€ message when logging in<br/>
+- Save the playerâ€™s new level when leveling up<br/>
+<br/>
+### 3.3.3.1 ###<br/>
+- First public release</div>
+</div>
+<div class="boxtab-section-hide" id="other_t">
+<div class="divline"><div class="title">Optional Files (0)</div></div>
+<br/>
+<br/>
+<div class="divline"><div class="title">Archived Files (21)</div></div>
+<div style="border:none; padding:0px; max-height:220px; overflow:auto">
+<table cellpadding="8" cellspacing="1" border="0" width="100%">
+<tr>
+<td class="thead"><div class="smallfont"><b>File Name</b></div></td>
+<td class="thead"><div class="smallfont"><b>Version</b></div></td>
+<td class="thead"><div class="smallfont"><b>Size</b></div></td>
+<td class="thead"><div class="smallfont"><b>Author</b></div></td>
+<td class="thead"><div class="smallfont"><b>Date</b></div></td>
+</tr>
+<tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=140355"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=140355">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">10.2.5.0</div></td>
+<td class="alt1"><div class="smallfont">16kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">01-17-24 03:22 AM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=138953"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=138953">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">10.2.0.1</div></td>
+<td class="alt2"><div class="smallfont">16kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">11-21-23 01:58 AM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=137590"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=137590">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">10.2.0.0</div></td>
+<td class="alt1"><div class="smallfont">16kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">11-11-23 05:21 PM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=137255"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=137255">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">10.1.7.1</div></td>
+<td class="alt2"><div class="smallfont">16kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">10-15-23 05:48 PM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=136578"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=136578">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">10.1.7.0</div></td>
+<td class="alt1"><div class="smallfont">16kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">09-08-23 01:08 AM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=135917"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=135917">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">10.1.5.2</div></td>
+<td class="alt2"><div class="smallfont">16kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">08-23-23 11:45 AM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=135496"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=135496">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">10.1.5.1</div></td>
+<td class="alt1"><div class="smallfont">16kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">07-18-23 03:57 PM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=134927"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=134927">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">10.1.5.0</div></td>
+<td class="alt2"><div class="smallfont">15kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">07-12-23 02:15 PM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=134743"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=134743">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">10.1.0.0</div></td>
+<td class="alt1"><div class="smallfont">15kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">05-04-23 12:47 AM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=133276"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=133276">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">10.0.7.0</div></td>
+<td class="alt2"><div class="smallfont">15kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">04-05-23 01:35 AM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=132694"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=132694">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">10.0.5.0</div></td>
+<td class="alt1"><div class="smallfont">15kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">03-18-23 06:35 PM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=132151"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=132151">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">10.0.2.0</div></td>
+<td class="alt2"><div class="smallfont">16kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">11-25-22 06:15 PM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=129059"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=129059">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">9.2.7.0</div></td>
+<td class="alt1"><div class="smallfont">17kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">08-30-22 09:44 AM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=125239"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=125239">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">9.2.5.0</div></td>
+<td class="alt2"><div class="smallfont">17kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">06-12-22 02:48 AM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=124093"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=124093">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">9.2.5.0</div></td>
+<td class="alt1"><div class="smallfont">17kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">06-12-22 02:48 AM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=124088"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=124088">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">9.2.5.0</div></td>
+<td class="alt2"><div class="smallfont">17kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">06-12-22 02:48 AM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=124081"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=124081">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">9.2.0.0</div></td>
+<td class="alt1"><div class="smallfont">17kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">02-23-22 07:14 AM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=122023"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=122023">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">9.1.5.1</div></td>
+<td class="alt2"><div class="smallfont">17kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">11-23-21 04:12 AM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=120940"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=120940">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">9.1.5.0</div></td>
+<td class="alt1"><div class="smallfont">17kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">11-06-21 04:26 PM</div></td>
+</tr> <tr>
+<td class="alt2"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=119841"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=119841">Broker Played Time</a></div></td>
+<td class="alt2"><div class="smallfont">9.1.0</div></td>
+<td class="alt2"><div class="smallfont">17kB</div></td>
+<td class="alt2"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt2"><div class="smallfont">07-01-21 04:56 PM</div></td>
+</tr> <tr>
+<td class="alt1"><div class="smallfont"><a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=118006"><i class="fa fa-download"></i></a>&nbsp;<a href="/downloads/getfile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;aid=118006">Broker Played Time</a></div></td>
+<td class="alt1"><div class="smallfont">9.0.5.0</div></td>
+<td class="alt1"><div class="smallfont">15kB</div></td>
+<td class="alt1"><div class="smallfont">LudiusMaximus</div></td>
+<td class="alt1"><div class="smallfont">03-10-21 02:49 AM</div></td>
+</tr>
+</table>
+</div>
+<br/>
+<br/>
+</div>
+<div class="boxtab-section-hide" id="comments_t">
+<script language="javascript" type="text/javascript">
+<!--
+function aimwindow(aimid) {
+	window.open("member.php?s=aa75ae419365f10f007cd2867537e6f3&action=aimmessage&aim="+aimid,"_blank","toolbar=no,location=no,menubar=no,scrollbars=no,width=175,height=275,resizeable=yes,status=no")
+
+
+}
+// -->
+</script>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+<td class="smallfont" width="130"><a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply.gif" border="0" alt="Post A Reply"></a></td>
+<td id="cmnt_opt" class="smallfont" width="140" align="left" valign="middle" nowrap="norwrap"><a href="#goto_cmntopt">Comment Options</a> <script type="text/javascript"> vbmenu_register("cmnt_opt"); </script></td>
+<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tr>
+<td class="vbmenu_control" style="font-weight:normal">Page 1 of 3</td>
+<td class="alt2"><span class="smallfont" title="Showing results 1 to 15 of 45"><strong>1</strong></span></td>
+<td class="alt1"><a class="smallfont" href="fileinfo.php?id=16711&amp;so=DESC&amp;page=2#comments" title="Show results 16 to 30 of 45">2</a></td><td class="alt1"><a class="smallfont" href="fileinfo.php?id=16711&amp;so=DESC&amp;page=3#comments" title="Show results 31 to 45 of 45">3</a></td>
+<td class="alt1"><a class="smallfont" href="fileinfo.php?id=16711&amp;so=DESC&amp;page=2#comments" title="Next Page - Results 16 to 30 of 45">&gt;</a></td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt460218"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+09-18-16, 07:44 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_460218">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_460218", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage"><div style="margin:10px; ">
+<table cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td class="bbquote">
+<div style="padding-bottom:8px;font-size:10px">
+Originally Posted by <strong>Tonyleila</strong>
+</div>
+<div style="font-style:italic">Hey Phanx,<br/>
+next time you update this make shure to remove the translated names of the AddOn.<br/>
+making it save the position only in German <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/biggrin.gif" border="0" alt title="Big Grin" class="inlineimg" /></div>
+</td>
+</tr>
+</table>
+</div>Thanks for fixing this too with the latest version <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/banana.gif" border="0" alt title="Banana!" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=460218"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=460218"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_460218_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt460215"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+09-18-16, 07:00 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_460215">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751">Phanx</a>
+<script type="text/javascript"> vbmenu_register("postmenu_460215", true); </script>
+</div>
+<div class="smallfont">Cat.
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751"><img src="/forums/image.php?u=28751&dateline=1601957433" alt="Phanx's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/downloads/author-28751.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 5617</div>
+<div>File comments: 2321</div>
+<div>Uploads: 54</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Version 7.0.3.1:<br/>
+* Added an option to hide other realms in the tooltip<br/>
+* Fixed the Broker text for characters with less than 1 hour played</div>
+
+
+<div>
+__________________<br/>
+<font size="1"><font color="#AAAAAA"><b>Retired author of <a href="http://www.wowinterface.com/downloads/author-28751.html"><font color="#BBAA66">too many addons</font></a>.</b><br/>
+Message me if you're interested in taking over one of my addons.<br/>
+<b>Don’t</b> message me about addon bugs or programming questions.<br/>
+</font></font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Phanx is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=460215"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=460215"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_460215_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Phanx</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=28751" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=28751">Send a private message to Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href>Visit Phanx's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=28751">Find More Posts by Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=28751">Add Phanx to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt455989"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+08-09-16, 02:06 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_455989">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=330504">Ammako</a>
+<script type="text/javascript"> vbmenu_register("postmenu_455989", true); </script>
+</div>
+<div class="smallfont">A Frostmaul Preserver
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/downloads/author-330504.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 256</div>
+<div>File comments: 29</div>
+<div>Uploads: 8</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">So I have some newly-created Lv. 1s that show 0m play time on the broker, even though they actually have several minutes of play time.<br/>
+<br/>
+Haven't gotten around to playing them just yet, so I'm not sure if that will resolve itself after a bit more time :s<br/>
+<br/>
+Also I have a suggestion, could an option be added to only display characters from the current realm? I have a lot of characters from many realms, so the list can get reaaaaaallyyyy long.<br/>
+<br/>
+Then at the bottom of the tooltip, you could have two lines like this:<br/>
+&quot;Total played time on this realm:&quot;<br/>
+&quot;Total played time:&quot;<br/>
+<br/>
+Because I'd still want to be able to see my total played time across all characters no matter what, but I really don't need to see the whole list of all characters on all realms at all times. Right now I'm lucky and my character list -just- reaches out to the bottom of the list but I'm afraid that any more will break something.<br/>
+<br/>
+Edit: Ended up getting more characters, and the tooltip overflows through the bottom of the screen lol.<br/>
+<br/>
+I've made personal edits to the add-on on my end to make it do exactly what I wanted, but it would be awesome if an option for it could be officially added into the add-on.</div>
+
+
+
+
+<div class="smallfont">
+<em>
+Last edited by Ammako : 08-09-16 at <span class="time">10:50 PM</span>.
+</em>
+</div>
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Ammako is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=455989"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=455989"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_455989_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Ammako</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=330504" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=330504">Send a private message to Ammako</a></td></tr>
+<tr><td class="vbmenu_option"><a href>Visit Ammako's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=330504">Find More Posts by Ammako</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=330504">Add Ammako to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt454669"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+07-27-16, 11:06 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_454669">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_454669", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage"><div style="margin:10px; ">
+<table cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td class="bbquote">
+<div style="padding-bottom:8px;font-size:10px">
+Originally Posted by <strong>Phanx</strong>
+</div>
+<div style="font-style:italic">Yeah, I didn't look at the comments before updating, sorry. I made the change afterward, but it didn't seem important enough to tag a new version for. At most you'll have to drag it in to position once per language.</div>
+</td>
+</tr>
+</table>
+</div>Nah, I just removed the other langauges from the toc again <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/biggrin.gif" border="0" alt title="Big Grin" class="inlineimg" /> <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/wink.gif" border="0" alt title="Wink" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=454669"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=454669"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_454669_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt454662"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+07-27-16, 09:27 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_454662">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751">Phanx</a>
+<script type="text/javascript"> vbmenu_register("postmenu_454662", true); </script>
+</div>
+<div class="smallfont">Cat.
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751"><img src="/forums/image.php?u=28751&dateline=1601957433" alt="Phanx's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/downloads/author-28751.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 5617</div>
+<div>File comments: 2321</div>
+<div>Uploads: 54</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Yeah, I didn't look at the comments before updating, sorry. I made the change afterward, but it didn't seem important enough to tag a new version for. At most you'll have to drag it in to position once per language.</div>
+
+
+<div>
+__________________<br/>
+<font size="1"><font color="#AAAAAA"><b>Retired author of <a href="http://www.wowinterface.com/downloads/author-28751.html"><font color="#BBAA66">too many addons</font></a>.</b><br/>
+Message me if you're interested in taking over one of my addons.<br/>
+<b>Don’t</b> message me about addon bugs or programming questions.<br/>
+</font></font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Phanx is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=454662"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=454662"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_454662_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Phanx</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=28751" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=28751">Send a private message to Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href>Visit Phanx's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=28751">Find More Posts by Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=28751">Add Phanx to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt454657"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+07-27-16, 08:23 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_454657">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_454657", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Thanks for the legion update Phanx!<br/>
+My comment below is however still a problem..</div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=454657"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=454657"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_454657_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt440400"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+01-25-15, 11:19 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_440400">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_440400", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Hey Phanx,<br/>
+next time you update this make shure to remove the translated names of the AddOn.<br/>
+Sharing this AddOn with my UI I was curious why the position of it was wrong in other languages:<br/>
+tl;dl Bazooka saves the position by name of the AddOn:<br/>
+<div style="margin:10px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="bbquote" dir="ltr" style="
+		margin: 0px;
+		width: 640px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">## Title-deDE: Broker: Zeit gespielt
+## Title-esMX: Broker: Tiempo jugado
+## Title-esES: Broker: Tiempo jugado
+## Title-ptBR: Broker: Tempo jogado</pre>
+</div>making it save the position only in German <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/biggrin.gif" border="0" alt title="Big Grin" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=440400"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=440400"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_440400_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt430458"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+10-20-14, 06:13 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_430458">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_430458", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage"><div style="margin:10px; ">
+<table cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td class="bbquote">
+<div style="padding-bottom:8px;font-size:10px">
+Originally Posted by <strong>Phanx</strong>
+</div>
+<div style="font-style:italic">So you want all the realms/factions merged, and just one big list sorted by time? It probably makes more sense to split that up into two options:</div>
+</td>
+</tr>
+</table>
+</div>Maybe no.<br/>
+like its now subdivided by relam (of cause the relam where you are atm is on top.<br/>
+Change nothing but order how the chars are displayed so that the char with the highes time is on top and lowes time is at the bottom. And the char where you are atm is on top too of cause.</div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=430458"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=430458"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_430458_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt430382"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+10-19-14, 09:10 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_430382">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751">Phanx</a>
+<script type="text/javascript"> vbmenu_register("postmenu_430382", true); </script>
+</div>
+<div class="smallfont">Cat.
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751"><img src="/forums/image.php?u=28751&dateline=1601957433" alt="Phanx's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/downloads/author-28751.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 5617</div>
+<div>File comments: 2321</div>
+<div>Uploads: 54</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">So you want all the realms/factions merged, and just one big list sorted by time? It probably makes more sense to split that up into two options:<br/>
+<br/>
+1. Sort by name | Sort by time<br/>
+2. Show in groups | Don't group<br/>
+<br/>
+I'm open to that, but have too many more important things to do at the moment... if you can submit a ticket that will greatly increase the chances that I'll remember this when all the patch-related fixing is done. <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/tongue.gif" border="0" alt title="Stick Out Tongue" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font size="1"><font color="#AAAAAA"><b>Retired author of <a href="http://www.wowinterface.com/downloads/author-28751.html"><font color="#BBAA66">too many addons</font></a>.</b><br/>
+Message me if you're interested in taking over one of my addons.<br/>
+<b>Don’t</b> message me about addon bugs or programming questions.<br/>
+</font></font>
+</div>
+
+
+<div class="smallfont">
+<em>
+Last edited by Phanx : 10-19-14 at <span class="time">09:11 PM</span>.
+</em>
+</div>
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Phanx is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=430382"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=430382"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_430382_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Phanx</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=28751" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=28751">Send a private message to Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href>Visit Phanx's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=28751">Find More Posts by Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=28751">Add Phanx to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt429843"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+10-18-14, 09:00 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_429843">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_429843", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Thanks for the toc update <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/smile.gif" border="0" alt title="Smile" class="inlineimg" /><br/>
+I have one more request coud you sort the tooltip by time played?<br/>
+So char you play atm is displayed on top and after that the Relam Chars are sorted by time played with the longest time played on top, that woud make sense for me <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/biggrin.gif" border="0" alt title="Big Grin" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+<div class="smallfont">
+<em>
+Last edited by Tonyleila : 10-18-14 at <span class="time">09:01 AM</span>.
+</em>
+</div>
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=429843"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=429843"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_429843_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt429044"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+10-16-14, 07:41 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_429044">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751">Phanx</a>
+<script type="text/javascript"> vbmenu_register("postmenu_429044", true); </script>
+</div>
+<div class="smallfont">Cat.
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751"><img src="/forums/image.php?u=28751&dateline=1601957433" alt="Phanx's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/downloads/author-28751.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 5617</div>
+<div>File comments: 2321</div>
+<div>Uploads: 54</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage"><font color="#FFAA00"><font size="3">Version 6.0.2.67</font></font><ul><li> Updated for WoW 6.0</li>
+</ul>No actual code changes.</div>
+
+
+<div>
+__________________<br/>
+<font size="1"><font color="#AAAAAA"><b>Retired author of <a href="http://www.wowinterface.com/downloads/author-28751.html"><font color="#BBAA66">too many addons</font></a>.</b><br/>
+Message me if you're interested in taking over one of my addons.<br/>
+<b>Don’t</b> message me about addon bugs or programming questions.<br/>
+</font></font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Phanx is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=429044"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=429044"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_429044_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Phanx</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=28751" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=28751">Send a private message to Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href>Visit Phanx's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=28751">Find More Posts by Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=28751">Add Phanx to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt427283"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+09-27-14, 02:45 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_427283">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_427283", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage"><div style="margin:10px; ">
+<table cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td class="bbquote">
+<div style="padding-bottom:8px;font-size:10px">
+Originally Posted by <strong>Phanx</strong>
+</div>
+<div style="font-style:italic">Which Broker display are you using? I tested various screen placements with Bazooka and couldn't get the menus to go off-screen. Do you have any other addons that might affect dropdown menus generally?</div>
+</td>
+</tr>
+</table>
+</div>I have tryed disable all addons to find out its a problem with <a href="http://www.wowinterface.com/downloads/info19529-nibWindowSize.html">nibWindowSize</a>. <br/>
+Found out it works if I set scale dropdownmenus to false it works <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/smile.gif" border="0" alt title="Smile" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+<div class="smallfont">
+<em>
+Last edited by Tonyleila : 09-27-14 at <span class="time">02:53 PM</span>.
+</em>
+</div>
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=427283"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=427283"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_427283_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt427271"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+09-27-14, 09:02 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_427271">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751">Phanx</a>
+<script type="text/javascript"> vbmenu_register("postmenu_427271", true); </script>
+</div>
+<div class="smallfont">Cat.
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=28751"><img src="/forums/image.php?u=28751&dateline=1601957433" alt="Phanx's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/downloads/author-28751.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 5617</div>
+<div>File comments: 2321</div>
+<div>Uploads: 54</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Which Broker display are you using? I tested various screen placements with Bazooka and couldn't get the menus to go off-screen. Do you have any other addons that might affect dropdown menus generally?</div>
+
+
+<div>
+__________________<br/>
+<font size="1"><font color="#AAAAAA"><b>Retired author of <a href="http://www.wowinterface.com/downloads/author-28751.html"><font color="#BBAA66">too many addons</font></a>.</b><br/>
+Message me if you're interested in taking over one of my addons.<br/>
+<b>Don’t</b> message me about addon bugs or programming questions.<br/>
+</font></font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Phanx is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=427271"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=427271"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_427271_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Phanx</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=28751" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=28751">Send a private message to Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href>Visit Phanx's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=28751">Find More Posts by Phanx</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=28751">Add Phanx to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt427243"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+09-26-14, 06:05 PM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_427243">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_427243", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage">Hey Phanx me again! <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/smile.gif" border="0" alt title="Smile" class="inlineimg" /><br/>
+I have a small problem I woud like to put the broker display at the top right of my UI right above the minimap. Problem is the Tooltip opens down but the submenu to remove chars still opens to the right so its out of the screen. Can you maybe fix that? Not shure if its possible ..<br/>
+Also you coud change Klassensymbolen to <b>Klassensymbole</b> and Franktionsymbolen to <b>Fraktionssymbole</b> <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/tongue.gif" border="0" alt title="Stick Out Tongue" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=427243"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=427243"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_427243_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table class="tborder" cellpadding="8" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="thead" style="font-weight:normal">
+
+<a name="cmnt421143"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/statusicon/post_new.gif" alt="Unread" border="0" /></a>
+03-16-14, 05:32 AM
+
+</td>
+<td class="thead" style="font-weight:normal" align="right">
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td class="alt2-postbit" width="175">
+<div class="postbit-carrot">
+<div id="postmenu_421143">
+<a style="font-size:14pt" href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681">Tonyleila</a>
+<script type="text/javascript"> vbmenu_register("postmenu_421143", true); </script>
+</div>
+<div class="smallfont">A Molten Giant
+<div class="smallfont">
+&nbsp;<br/><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;u=231681"><img src="/forums/image.php?u=231681&dateline=1423783181" alt="Tonyleila's Avatar" border="0" /></a>
+</div>
+<div class="smallfont">
+<div><a href="https://www.wowinterface.com/portal231681.html"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/misc/badges/author-list-link.gif" width="110" height="20" border="0" alt="AddOn Author - Click to view AddOns"></a></div>
+<br/>
+<div>Forum posts: 758</div>
+<div>File comments: 2021</div>
+<div>Uploads: 37</div>
+<div> </div>
+</div>
+</div>
+</td>
+<td class="alt1" style="padding: 10px">
+
+<div class="postmessage"><div style="margin:10px; ">
+<table cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td class="bbquote">
+<div style="padding-bottom:8px;font-size:10px">
+Originally Posted by <strong>Phanx</strong>
+</div>
+<div style="font-style:italic"><font color="#FC0"><font size="3">Version 5.4.7.61</font></font><ul><li> Broker text now shows the current character's played time</li>
+</ul><br/>
+Gerade für dich, mein Deutschlehrer. <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/biggrin.gif" border="0" alt title="Big Grin" class="inlineimg" /></div>
+</td>
+</tr>
+</table>
+</div>Vielen dank junger Padawan <img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/smilies/banana.gif" border="0" alt title="Banana!" class="inlineimg" /></div>
+
+
+<div>
+__________________<br/>
+<font face="Arial"><font size="1"><a href="http://eu.battle.net/wow/de/character/anetheron/Leilameda/advanced" target="_blank" rel="nofollow">Author</a> of: <a href="http://www.wowinterface.com/downloads/info17709-LeilaUIv3.html"><font color="DeepSkyBlue">LeilaUI</font></a> and Aurora: <a href="http://www.wowinterface.com/downloads/fileinfo.php?id=19980"> <font color="DeepSkyBlue">Missing Textures</font></a></font></font><br/>
+<font color="DeepSkyBlue">__________________</font>
+</div>
+
+
+
+</td>
+</tr>
+<tr>
+<td class="alt2-postbit">
+<span title="Tonyleila is offline"><i class="fa fa-square" style="color:#444"></i></span>
+<a href="report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportcmnt&amp;commentid=421143"><img class="inlineimg" src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report comment to moderator" border="0" /></a>
+&nbsp;
+</td>
+<td class="alt1" align="right" style="padding: 10px;">
+<hr size="1" color="#404040" />
+
+<a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711&amp;quote=421143"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply_small.gif" alt="Reply With Quote" border="0" /></a>
+
+</td>
+</tr>
+</table>
+
+<div class="vbmenu_popup" id="postmenu_421143_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr>
+<td class="thead">Tonyleila</td>
+</tr>
+<tr><td class="vbmenu_option"><a href="/forums/member.php?s=aa75ae419365f10f007cd2867537e6f3&amp;userid=231681" target="_blank">View Public Profile</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/private.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=newpm&amp;userid=231681">Send a private message to Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="http://council-gilde.enjin.com/">Visit Tonyleila's homepage!</a></td></tr>
+<tr><td class="vbmenu_option"><a href="search.php?s=aa75ae419365f10f007cd2867537e6f3&amp;usrcmnts=231681">Find More Posts by Tonyleila</a></td></tr>
+<tr><td class="vbmenu_option"><a href="/forums/profile.php?s=aa75ae419365f10f007cd2867537e6f3&amp;do=addlist&amp;userlist=buddy&amp;u=231681">Add Tonyleila to Your Buddy List</a></td></tr>
+</table>
+</div>
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+<td class="smallfont"><a href="addcomment.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=addcomment&amp;fileid=16711"><img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/reply.gif" border="0" alt="Post A Reply"></a></td>
+<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tr>
+<td class="vbmenu_control" style="font-weight:normal">Page 1 of 3</td>
+<td class="alt2"><span class="smallfont" title="Showing results 1 to 15 of 45"><strong>1</strong></span></td>
+<td class="alt1"><a class="smallfont" href="fileinfo.php?id=16711&amp;so=DESC&amp;page=2#comments" title="Show results 16 to 30 of 45">2</a></td><td class="alt1"><a class="smallfont" href="fileinfo.php?id=16711&amp;so=DESC&amp;page=3#comments" title="Show results 31 to 45 of 45">3</a></td>
+<td class="alt1"><a class="smallfont" href="fileinfo.php?id=16711&amp;so=DESC&amp;page=2#comments" title="Next Page - Results 16 to 30 of 45">&gt;</a></td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+<div align="center"></div>
+<br/>
+
+<div class="vbmenu_popup" id="cmnt_opt_menu" style="display:none">
+<table cellpadding="4" cellspacing="1" border="0">
+<tr><td class="thead">Sorting</td></tr>
+<tr><td class="vbmenu_option"><a href="fileinfo.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;so=newest&amp;page=1#comments">Sort comments by Newest</a></td></tr>
+<tr><td class="vbmenu_option"><a href="fileinfo.php?s=aa75ae419365f10f007cd2867537e6f3&amp;id=16711&amp;so=oldest&amp;page=1#comments">Sort comments by Oldest</a></td></tr>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+<div>
+<br/>
+<div class="smallfont">
+<img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/buttons/report.gif" alt="Report this file" border="0" align="absmiddle" /> <a href="/downloads/report.php?s=aa75ae419365f10f007cd2867537e6f3&amp;action=reportfile&amp;fileid=16711">Report this File</a>
+</div>
+<br/>
+<div>
+<div style="float: right;"></div><div class="smallfont" style="text-align:left; white-space:nowrap">
+<form name="catjump" action="index.php" method="post">
+<input type="hidden" name="s" value="aa75ae419365f10f007cd2867537e6f3">
+<input type="hidden" name="securitytoken" value="95311573c7f5a13fcd8de543cd2785574b78d547" />
+<strong>Category Jump</strong>:<br/>
+<select name="cid" onchange="this.form.submit();">
+<optgroup label="File Categories">
+<option value="158"> Addons for WoW Classic</option>
+<option value="163">- Cataclysm Classic</option>
+<option value="161">- The Burning Crusade Classic</option>
+<option value="160">- Classic - General</option>
+<option value="162">- WOTLK Classic</option>
+<option value="23"> Stand-Alone Addons</option>
+<option value="19">- Action Bar Mods</option>
+<option value="94">- Auction House & Vendors</option>
+<option value="138">- Carbonite</option>
+<option value="20">- Bags, Bank, Inventory</option>
+<option value="22">- Buff, Debuff, Spell</option>
+<option value="112">- Casting Bars, Cooldowns</option>
+<option value="18">- Character Advancement</option>
+<option value="55">- Chat Mods</option>
+<option value="39">- Class & Role Specific</option>
+<option value="120">-- Death Knight</option>
+<option value="157">-- Demon Hunter</option>
+<option value="56">-- Druid</option>
+<option value="57">-- Hunter</option>
+<option value="58">-- Mage</option>
+<option value="152">-- Monk</option>
+<option value="59">-- Paladin</option>
+<option value="60">-- Priest</option>
+<option value="61">-- Rogue</option>
+<option value="62">-- Shaman</option>
+<option value="63">-- Warlock</option>
+<option value="64">-- Warrior</option>
+<option value="149">-- DPS</option>
+<option value="150">-- Healers</option>
+<option value="151">-- Tank</option>
+<option value="126">- oUF</option>
+<option value="129">-- oUF: Core</option>
+<option value="127">-- oUF: Layouts</option>
+<option value="128">-- oUF: Plugins</option>
+<option value="25">- Combat Mods</option>
+<option value="26">- Data Mods</option>
+<option value="155">- Garrisons</option>
+<option value="17">- Graphic UI Mods</option>
+<option value="95">- Group, Guild & Friends</option>
+<option value="109">- Info, Plug-in Bars</option>
+<option value="108" selected>-- Data Broker</option>
+<option value="86">-- FuBar</option>
+<option value="99">-- Titan Panel</option>
+<option value="111">-- Other</option>
+<option value="24">- Map, Coords, Compasses</option>
+<option value="97">- Mail</option>
+<option value="100">- Mini Games, ROFL</option>
+<option value="146">- Mounts & Pets</option>
+<option value="96">- PvP, Arena, BattleGrounds</option>
+<option value="45">- Raid Mods</option>
+<option value="114">- RolePlay, Music Mods</option>
+<option value="113">- Suites</option>
+<option value="40">- TradeSkill Mods</option>
+<option value="98">- ToolTip</option>
+<option value="147">- UI Media</option>
+<option value="21">- Unit Mods</option>
+<option value="27">- Miscellaneous</option>
+<option value="154">- Utility Mods</option>
+<option value="28"> Compilations</option>
+<option value="104">- Graphical Compilations</option>
+<option value="106">- Minimalistic Compilations</option>
+<option value="107">- Class Compilations</option>
+<option value="103">- Guild Compilations</option>
+<option value="142">- DPS Compilations</option>
+<option value="141">- Healer Compilations</option>
+<option value="143">- Tank Compilations</option>
+<option value="102">- Generic Compilations</option>
+<option value="125">- nUI</option>
+<option value="130">-- nUI: Core</option>
+<option value="137">-- nUI+ Full Version</option>
+<option value="131">-- nUI: Art</option>
+<option value="136">-- nUI: Enhancements</option>
+<option value="132">-- nUI: Layouts</option>
+<option value="133">-- nUI: HUD Designs</option>
+<option value="134">-- nUI: Unit Frame Panels</option>
+<option value="135">-- nUI: Info Panel Plugins</option>
+<option value="144"> Utilities</option>
+<option value="53">- Libraries</option>
+<option value="35">- Developer Utilities</option>
+<option value="88">- WoW Tools & Utilities</option>
+<option value="145"> Optional</option>
+<option value="34">- Beta-version AddOns</option>
+<option value="33">- Plug-Ins & Patches</option>
+<option value="44">- Discontinued and Outdated Mods</option>
+</optgroup>
+</select><input type="submit" class="button" value="Go" />
+</form>
+</div>
+</div>
+<br/>
+<script type="text/javascript">ga('send', 'event', 'AddOns', 'View', 'WOW-16711');</script>
+<div class="DonateOverlay" id="DonateOverlay">
+<div style="width:600px; height:270px">
+<h2 style="margin:10px 0">Support AddOn Development!</h2>
+<p>
+You have just downloaded <b><span id="Donate_ftitle"></span></b> by the author <b><span id="Donate_author"></span></b>. If you like this AddOn why not consider supporting the author? This author has set up a donation account. Donations ensure that authors can continue to develop useful tools for everyone.
+</p>
+<div class="Donate_button" id="Donate_paypal" style="display: none;">
+<form action="https://www.paypal.com/cgi-bin/webscr" target="_BLANK" method="post">
+<input type="hidden" id="Donate_itemname" name="item_name" value>
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" id="Donate_paypalid" name="hosted_button_id" value>
+<input type="image" src="/images/paypal2.gif" border="0" name="submit" alt="Click here to lend your support!">
+<img alt border="0" src="/images/paypal2.gif" width="1" height="1">
+</form><br/>
+<i>*Clicking the donate button above will take you to PayPal.com</i>
+</div>
+<div class="Donate_button" id="Donate_pledgie" style="display: none;">
+<a href id="Donate_pledgieid_link" target="_BLANK"><img src="/images/pledgie.png" width="149" height="37" border="0" alt="Click here to lend your support!" /></a><br/>
+<i>*Clicking the donate button above will take you to Pledgie.com</i>
+</div>
+<div class="Donate_button" id="Donate_page" style="display: none;">
+<br/>
+<span style="font-size: 28px"><a href="#donate" target="_BLANK">Find out more!</a></span>
+</div>
+<div class="Disable">
+[<a href="https://www.wowinterface.com/donation.php?a=disable">Disable these notices</a>]
+</div>
+</div>
+</div>
+</div>
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "6036197" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="https://sb.scorecardresearch.com/p?c1=2&c2=6036197&cv=2.0&cj=1" />
+</noscript>
+</div>
+
+</div>
+<div id="footer" class="clearfix">
+<div class="horz">
+<div id="Horizontal_BTF"></div>
+<script>
+window['nitroAds'].createAd('Horizontal_BTF', {
+  "refreshLimit": 20,
+  "refreshTime": 30,
+  "renderVisibleOnly": false,
+  "refreshVisibleOnly": true,
+  "sizes": [
+    [
+      "728",
+      "90"
+    ],
+    [
+      "970",
+      "90"
+    ],
+    [
+      "970",
+      "250"
+    ]
+  ],
+  "report": {
+    "enabled": true,
+    "icon": false,
+    "wording": "Report Ad",
+    "position": "bottom-right"
+  }
+});
+</script>
+</div>
+<div style="padding:30px 0 30px 20px">
+<div id="sitelinks">
+<div class="itemtitle">WoWInterface</div>
+<ul>
+<li><a href="https://www.wowinterface.com">Home</a></li>
+<li><a href="https://mmoui.com/?s=aa75ae419365f10f007cd2867537e6f3&amp;contact" rel="nofollow">Contact WoWInterface</a></li>
+<li><a href="http://mmoui.com/?tos">Terms of Service</a></li>
+<li><a href="http://mmoui.com/?privacy">Privacy Statement</a></li>
+<li><a href="#top" onclick="self.scrollTo(0, 0); return false;">Top</a></li>
+<span data-ccpa-link="1"></span>
+</ul>
+</div>
+<div id="addonsites">
+<div class="itemtitle">AddOn Sites</div>
+<ul>
+<li><a href="http://www.cwmods.com">Cube World Mods</a></li><li><a href="http://www.esoui.com">ESOUI</a></li><li><a href="http://www.eqinterface.com">EQInterface</a></li>
+<li><a href="http://www.eq2interface.com">EQ2Interface</a></li>
+<li><a href="http://www.lotrointerface.com">LotROInterface</a></li>
+<li><a href="http://www.riftui.com">Riftui</a></li>
+<li><a href="http://www.secretui.com">SecretUI</a></li>
+<li><a href="http://www.swtorui.com">Swtorui</a></li>
+<li><a href="http://www.wowinterface.com">WoWInterface</a></li>
+</ul>
+</div>
+<div id="copyright">
+<img src="//cdn-wow.mmoui.com/images/style_mmoi_wowi2/layout/mmoui-copyright.png" width="143" height="37" alt="MMOUI" /><br/>
+&copy; 2004 - 2022 MMOUI<br/>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="//cdn-wow.mmoui.com/clientscript/jquery.dcd.doubletaptogo.js?v2"></script>
+<script src="//cdn-wow.mmoui.com/clientscript/common-end.js?v3" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+<div id="Pixel_1x1" style="height:1px; width:1px;"></div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;218309a7b3514c189822501190ba7f48&quot;}"></script>
+<script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'87630c514ad355f1',t:'MTcxMzQyNjQ2MC42NTgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

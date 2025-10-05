@@ -12,11 +12,11 @@ func TestBuilder_MergeAddonData(t *testing.T) {
 
 	// Create test addon data with different priorities
 	listingData := types.AddonData{
-		Source:       types.WowInterfaceSource,
-		SourceID:     "12345",
-		Filename:     "listing.json",
-		Name:         "test-addon",
-		Label:        "Test Addon",
+		Source:        types.WowInterfaceSource,
+		SourceID:      "12345",
+		Filename:      "listing.json",
+		Name:          "test-addon",
+		Label:         "Test Addon",
 		DownloadCount: intPtr(100),
 		GameTrackSet: map[types.GameTrack]bool{
 			types.RetailTrack: true,
@@ -36,12 +36,12 @@ func TestBuilder_MergeAddonData(t *testing.T) {
 	}
 
 	apiDetailData := types.AddonData{
-		Source:   types.WowInterfaceSource,
-		SourceID: "12345",
-		Filename: "api-detail.json",
+		Source:      types.WowInterfaceSource,
+		SourceID:    "12345",
+		Filename:    "api-detail.json",
 		UpdatedDate: timePtr(time.Date(2024, 1, 1, 12, 0, 0, 0, time.UTC)),
 		TagSet: map[string]bool{
-			"bags": true,
+			"bags":      true,
 			"inventory": true,
 		},
 	}

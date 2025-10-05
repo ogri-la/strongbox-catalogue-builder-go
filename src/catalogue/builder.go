@@ -111,12 +111,10 @@ func (b *Builder) BuildCatalogue(addons []types.Addon, sources []types.Source) t
 		filteredAddons = addons
 	}
 
-	// Sort addons by name then by source for consistent output
+	// Sort addons by source-id for stable, deterministic output
+	// source-id changes less frequently than name (which can vary with slugification)
 	sort.Slice(filteredAddons, func(i, j int) bool {
-		if filteredAddons[i].Name != filteredAddons[j].Name {
-			return filteredAddons[i].Name < filteredAddons[j].Name
-		}
-		return filteredAddons[i].Source < filteredAddons[j].Source
+		return filteredAddons[i].SourceID < filteredAddons[j].SourceID
 	})
 
 	return types.Catalogue{

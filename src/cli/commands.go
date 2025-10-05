@@ -6,21 +6,26 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"path/filepath"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/ogri-la/strongbox-catalogue-builder-go/src/catalogue"
+	"github.com/ogri-la/strongbox-catalogue-builder-go/src/github"
 	"github.com/ogri-la/strongbox-catalogue-builder-go/src/http"
+	"github.com/ogri-la/strongbox-catalogue-builder-go/src/retry"
 	"github.com/ogri-la/strongbox-catalogue-builder-go/src/types"
+	"github.com/ogri-la/strongbox-catalogue-builder-go/src/validation"
 	"github.com/ogri-la/strongbox-catalogue-builder-go/src/wowi"
 )
 
 // ScrapeConfig holds configuration for scraping
 type ScrapeConfig struct {
-	HTTPClient  http.HTTPClient
-	OutputFiles []string
-	Sources     []types.Source
-	MaxWorkers  int
+	HTTPClient     http.HTTPClient
+	Sources        []types.Source
+	MaxWorkers     int
+	WoWIAPIVersion wowi.APIVersion
 }
 
 // WriteConfig holds configuration for writing catalogues
@@ -52,9 +57,19 @@ func (h *CommandHandler) Scrape(ctx context.Context, config ScrapeConfig) error 
 	for _, source := range config.Sources {
 		switch source {
 		case types.WowInterfaceSource:
-			addons, err := h.scrapeWowInterface(ctx, config.HTTPClient, config.MaxWorkers)
+			addons, err := h.scrapeWowInterface(ctx, config.HTTPClient, config.MaxWorkers, config.WoWIAPIVersion)
 			if err != nil {
 				return fmt.Errorf("failed to scrape WowInterface: %w", err)
+			}
+
+			mu.Lock()
+			allAddons = append(allAddons, addons...)
+			mu.Unlock()
+
+		case types.GitHubSource:
+			addons, err := h.scrapeGitHub(ctx)
+			if err != nil {
+				return fmt.Errorf("failed to scrape GitHub: %w", err)
 			}
 
 			mu.Lock()
@@ -66,12 +81,57 @@ func (h *CommandHandler) Scrape(ctx context.Context, config ScrapeConfig) error 
 		}
 	}
 
-	// Build catalogue
-	catalogue := h.builder.BuildCatalogue(allAddons, config.Sources)
-	slog.Info("built catalogue", "total-addons", catalogue.Total)
+	// Build full catalogue with all sources
+	fullCatalogue := h.builder.BuildCatalogue(allAddons, config.Sources)
+	slog.Info("built catalogue", "total-addons", fullCatalogue.Total)
 
-	// Write output
-	return h.writeCatalogue(catalogue, config.OutputFiles)
+	// Create state directory
+	stateDir := "state"
+	if err := os.MkdirAll(stateDir, 0755); err != nil {
+		return fmt.Errorf("failed to create state directory: %w", err)
+	}
+
+	// Cutoff date for "short" catalogue: Dragonflight expansion (2022-11-28)
+	cutoffDate := time.Date(2022, 11, 28, 0, 0, 0, 0, time.UTC)
+
+	// Write source-specific catalogues
+	for _, source := range config.Sources {
+		sourceCatalogue := h.builder.FilterCatalogue(fullCatalogue, func(addon types.Addon) bool {
+			return addon.Source == source
+		})
+
+		var filename string
+		switch source {
+		case types.WowInterfaceSource:
+			filename = "wowinterface-catalogue.json"
+		case types.GitHubSource:
+			filename = "github-catalogue.json"
+		default:
+			continue
+		}
+
+		outputPath := filepath.Join(stateDir, filename)
+		if err := h.writeCatalogue(sourceCatalogue, outputPath); err != nil {
+			return err
+		}
+	}
+
+	// Write full catalogue (all sources)
+	fullPath := filepath.Join(stateDir, "full-catalogue.json")
+	if err := h.writeCatalogue(fullCatalogue, fullPath); err != nil {
+		return err
+	}
+
+	// Write short catalogue (maintained addons only)
+	shortCatalogue := h.builder.ShortenCatalogue(fullCatalogue, cutoffDate)
+	slog.Info("shortened catalogue", "original", fullCatalogue.Total, "maintained", shortCatalogue.Total, "cutoff", cutoffDate.Format("2006-01-02"))
+
+	shortPath := filepath.Join(stateDir, "short-catalogue.json")
+	if err := h.writeCatalogue(shortCatalogue, shortPath); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Write executes the write command (reads from state files)
@@ -82,12 +142,22 @@ func (h *CommandHandler) Write(ctx context.Context, config WriteConfig) error {
 	// In a full implementation, this would read addon data from state files
 	catalogue := h.builder.BuildCatalogue([]types.Addon{}, config.Sources)
 
-	return h.writeCatalogue(catalogue, config.OutputFiles)
+	if len(config.OutputFiles) == 0 {
+		return h.writeCatalogue(catalogue, "")
+	}
+
+	for _, outputFile := range config.OutputFiles {
+		if err := h.writeCatalogue(catalogue, outputFile); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
 // scrapeWowInterface handles WowInterface-specific scraping logic
-func (h *CommandHandler) scrapeWowInterface(ctx context.Context, client http.HTTPClient, maxWorkers int) ([]types.Addon, error) {
-	slog.Info("scraping WowInterface")
+func (h *CommandHandler) scrapeWowInterface(ctx context.Context, client http.HTTPClient, maxWorkers int, apiVersion wowi.APIVersion) ([]types.Addon, error) {
+	slog.Info("scraping WowInterface", "mode", "API + HTML detail pages", "api_version", apiVersion)
 
 	parser := wowi.NewParser()
 
@@ -97,9 +167,30 @@ func (h *CommandHandler) scrapeWowInterface(ctx context.Context, client http.HTT
 
 	var mu sync.Mutex
 	var wg sync.WaitGroup
+	var inFlight atomic.Int32 // Track URLs currently being processed
 
-	// Create worker pool
-	urlChan := make(chan string, 100)
+	// Create worker pool with larger buffer to handle API file list
+	// v3 API has ~7971 addons, each generating 2 URLs = ~16k URLs
+	urlChan := make(chan string, 20000)
+
+	// Start periodic queue status logger
+	stopLogger := make(chan bool)
+	go func() {
+		ticker := time.NewTicker(2 * time.Second)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ticker.C:
+				queueDepth := len(urlChan)
+				processing := inFlight.Load()
+				if queueDepth > 0 || processing > 0 {
+					slog.Info("queue status", "pending_urls", queueDepth, "processing", processing, "workers", maxWorkers)
+				}
+			case <-stopLogger:
+				return
+			}
+		}
+	}()
 
 	// Start workers
 	for i := 0; i < maxWorkers; i++ {
@@ -108,27 +199,41 @@ func (h *CommandHandler) scrapeWowInterface(ctx context.Context, client http.HTT
 			defer wg.Done()
 
 			for url := range urlChan {
+				inFlight.Add(1)
 				if err := h.processURL(ctx, client, parser, url, &mu, processedURLs, addonDataMap, urlChan); err != nil {
 					slog.Error("failed to process URL", "url", url, "error", err)
 				}
+				inFlight.Add(-1)
 			}
 		}()
 	}
 
-	// Start with initial URLs
-	for _, url := range wowi.StartingURLs() {
+	// Start with initial URL (API filelist only - HTML detail pages discovered from there)
+	for _, url := range wowi.StartingURLs(apiVersion) {
 		urlChan <- url
 	}
 
-	// Close channel when done (this would need more sophisticated coordination in a real implementation)
+	// Monitor queue and close when all work is done
 	go func() {
-		// In a real implementation, you'd wait for all URLs to be processed
-		// This is simplified for the example
-		time.Sleep(30 * time.Second) // Give enough time for initial scraping
-		close(urlChan)
+		ticker := time.NewTicker(500 * time.Millisecond)
+		defer ticker.Stop()
+
+		for {
+			<-ticker.C
+			queueDepth := len(urlChan)
+			processing := inFlight.Load()
+
+			// We're done when queue is empty AND nothing is being processed
+			if queueDepth == 0 && processing == 0 {
+				slog.Info("all URLs processed, finishing scrape")
+				close(urlChan)
+				return
+			}
+		}
 	}()
 
 	wg.Wait()
+	close(stopLogger)
 
 	// Convert addon data to final addons
 	var addons []types.Addon
@@ -143,6 +248,20 @@ func (h *CommandHandler) scrapeWowInterface(ctx context.Context, client http.HTT
 	mu.Unlock()
 
 	slog.Info("completed WowInterface scraping", "addons", len(addons))
+	return addons, nil
+}
+
+// scrapeGitHub handles GitHub-specific scraping logic
+func (h *CommandHandler) scrapeGitHub(ctx context.Context) ([]types.Addon, error) {
+	slog.Info("scraping GitHub catalogue")
+
+	parser := github.NewParser()
+	addons, err := parser.BuildCatalogue()
+	if err != nil {
+		return nil, fmt.Errorf("failed to build GitHub catalogue: %w", err)
+	}
+
+	slog.Info("completed GitHub scraping", "addons", len(addons))
 	return addons, nil
 }
 
@@ -168,8 +287,9 @@ func (h *CommandHandler) processURL(
 
 	slog.Debug("processing URL", "url", url)
 
-	// Download content
-	resp, err := client.Get(ctx, url)
+	// Download content with retry logic
+	retryConfig := retry.DefaultConfig()
+	resp, err := retry.WithRetry(ctx, client, url, retryConfig)
 	if err != nil {
 		return fmt.Errorf("failed to download %s: %w", url, err)
 	}
@@ -187,15 +307,11 @@ func (h *CommandHandler) processURL(
 	mu.Lock()
 	defer mu.Unlock()
 
-	// Add new URLs to process
+	// Add new URLs to process (both API and HTML detail pages)
 	for _, newURL := range result.DownloadURLs {
 		if !processedURLs[newURL] {
-			select {
-			case urlChan <- newURL:
-			default:
-				// Channel full, skip this URL to avoid blocking
-				slog.Warn("URL channel full, skipping URL", "url", newURL)
-			}
+			// Block until we can send - we don't want to skip URLs
+			urlChan <- newURL
 		}
 	}
 
@@ -209,26 +325,44 @@ func (h *CommandHandler) processURL(
 	return nil
 }
 
-// writeCatalogue writes the catalogue to the specified output files
-func (h *CommandHandler) writeCatalogue(catalogue types.Catalogue, outputFiles []string) error {
+// Validate executes the validate command
+func (h *CommandHandler) Validate(ctx context.Context, cataloguePath string) error {
+	slog.Info("validating catalogue", "file", cataloguePath)
+
+	if err := validation.ValidateCatalogueFile(cataloguePath); err != nil {
+		slog.Error("validation failed", "file", cataloguePath, "error", err)
+		return err
+	}
+
+	slog.Info("validation successful", "file", cataloguePath)
+	return nil
+}
+
+// writeCatalogue writes a catalogue to a file or stdout
+func (h *CommandHandler) writeCatalogue(catalogue types.Catalogue, outputFile string) error {
 	jsonData, err := json.MarshalIndent(catalogue, "", "  ")
 	if err != nil {
 		return fmt.Errorf("failed to marshal catalogue: %w", err)
 	}
 
-	if len(outputFiles) == 0 {
+	if outputFile == "" {
 		// Write to stdout
 		fmt.Println(string(jsonData))
 		return nil
 	}
 
-	// Write to files
-	for _, outputFile := range outputFiles {
-		if err := os.WriteFile(outputFile, jsonData, 0644); err != nil {
-			return fmt.Errorf("failed to write catalogue to %s: %w", outputFile, err)
-		}
-		slog.Info("wrote catalogue", "file", outputFile, "addons", catalogue.Total)
+	// Write to file
+	if err := os.WriteFile(outputFile, jsonData, 0644); err != nil {
+		return fmt.Errorf("failed to write catalogue to %s: %w", outputFile, err)
 	}
+	slog.Info("wrote catalogue", "file", outputFile, "addons", catalogue.Total)
+
+	// Validate the catalogue after writing
+	if err := validation.ValidateCatalogueFile(outputFile); err != nil {
+		slog.Error("catalogue validation failed after write", "file", outputFile, "error", err)
+		return fmt.Errorf("catalogue validation failed: %w", err)
+	}
+	slog.Info("catalogue validated", "file", outputFile)
 
 	return nil
 }

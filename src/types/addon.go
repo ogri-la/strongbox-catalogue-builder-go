@@ -28,18 +28,19 @@ const (
 )
 
 // Addon represents a WoW addon
+// Note: keep fields alphabetised for deterministic JSON output
 type Addon struct {
-	Source           Source      `json:"source"`
-	SourceID         string      `json:"source-id"`
-	Name             string      `json:"name"`
-	Label            string      `json:"label"`
-	Description      string      `json:"description,omitempty"`
-	UpdatedDate      time.Time   `json:"updated-date"`
-	CreatedDate      *time.Time  `json:"created-date,omitempty"`
-	DownloadCount    *int        `json:"download-count,omitempty"`
-	GameTrackList    []GameTrack `json:"game-track-list"`
-	TagList          []string    `json:"tag-list,omitempty"`
-	URL              string      `json:"url"`
+	CreatedDate   *time.Time  `json:"created-date,omitempty"`
+	Description   string      `json:"description,omitempty"`
+	DownloadCount *int        `json:"download-count,omitempty"`
+	GameTrackList []GameTrack `json:"game-track-list"`
+	Label         string      `json:"label"`
+	Name          string      `json:"name"`
+	Source        Source      `json:"source"`
+	SourceID      string      `json:"source-id"`
+	TagList       []string    `json:"tag-list,omitempty"`
+	URL           string      `json:"url"`
+	UpdatedDate   time.Time   `json:"updated-date"`
 }
 
 // AddonData represents parsed addon data that may be incomplete

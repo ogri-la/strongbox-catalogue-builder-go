@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/lmittmann/tint"
 	"github.com/ogri-la/strongbox-catalogue-builder-go/src/cache"
@@ -13,12 +14,11 @@ import (
 	httpClient "github.com/ogri-la/strongbox-catalogue-builder-go/src/http"
 )
 
-var APP_VERSION = "unreleased"
-var APP_LOC = "https://github.com/ogri-la/strongbox-catalogue-builder-go"
+var version = "unreleased"
 
 func main() {
 	// Parse command line flags
-	flags, err := cli.ParseFlags(os.Args, APP_VERSION)
+	flags, err := cli.ParseFlags(os.Args, version)
 	if err != nil {
 		slog.Error("failed to parse flags", "error", err)
 		os.Exit(1)
@@ -45,12 +45,19 @@ func main() {
 
 	cacheConfig := cache.CacheConfig{
 		Directory:       cacheDir,
-		DefaultTTLHours: 24,
+		DefaultTTLHours: 48,
 		SearchTTLHours:  2,
 	}
 
+	// Setup HTTP transport with connection pooling optimized for concurrent scraping
+	transport := &http.Transport{
+		MaxIdleConnsPerHost: 10, // Allow multiple workers to reuse connections to same host
+		MaxIdleConns:        100,
+		IdleConnTimeout:     90 * time.Second,
+	}
+
 	// Setup HTTP client with caching
-	cachingTransport := cache.NewFileCachingTransport(cacheConfig, http.DefaultTransport)
+	cachingTransport := cache.NewFileCachingTransport(cacheConfig, transport)
 	userAgent := userAgent()
 	client := httpClient.NewRealHTTPClient(cachingTransport, userAgent)
 
@@ -75,6 +82,12 @@ func main() {
 			os.Exit(1)
 		}
 
+	case cli.ValidateSubCommand:
+		if err := handler.Validate(ctx, flags.ValidateFile); err != nil {
+			slog.Error("validate command failed", "error", err)
+			os.Exit(1)
+		}
+
 	default:
 		slog.Error("unknown subcommand", "subcommand", flags.SubCommand)
 		os.Exit(1)
@@ -82,5 +95,5 @@ func main() {
 }
 
 func userAgent() string {
-	return "strongbox-catalogue-builder-go/" + APP_VERSION + " (" + APP_LOC + ")"
+	return "strongbox-catalogue-builder " + version + " (https://github.com/ogri-la/strongbox-catalogue-builder-go)"
 }

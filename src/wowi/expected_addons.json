@@ -1,0 +1,38 @@
+[
+  {
+    "comment": "API-only test expectations - what we CAN get from v4 API",
+    "addons": [
+      {
+        "source-id": "21651",
+        "label": "$old!it",
+        "name": "old-it",
+        "description_contains": "This tiny addon celebrates you with an olympic cheer",
+        "updated-date": "2012-09-20T11:32:21Z",
+        "download-count": 1187,
+        "game-track-list": ["retail"],
+        "url": "https://www.wowinterface.com/downloads/info21651",
+        "note": "Name loses $ in slugify, description has BBCode"
+      },
+      {
+        "source-id": "25078",
+        "label": "Better Vendor Price",
+        "name": "better-vendor-price",
+        "description_contains": "Better Vendor Price",
+        "updated-date": "2025-08-06T00:40:20Z",
+        "download-count": 83214,
+        "game-track-list": ["classic", "classic-cata", "classic-wotlk", "retail"],
+        "url": "https://www.wowinterface.com/downloads/info25078",
+        "note": "4 tracks from API gameVersions"
+      }
+    ]
+  },
+  {
+    "comment": "API limitations - what we CANNOT get from API-only",
+    "missing_features": [
+      "created-date - not in v3 or v4 API",
+      "tag-list - only categoryId available, not rich tags",
+      "clean description - API has BBCode, not plain text summary",
+      "special chars in name - slugify removes $, !, etc"
+    ]
+  }
+]

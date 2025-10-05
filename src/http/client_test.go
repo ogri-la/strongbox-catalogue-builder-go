@@ -153,4 +153,3 @@ func TestMockHTTPClient_OverrideResponse(t *testing.T) {
 		t.Errorf("New response body = %s, want 'not found'", string(resp.Body))
 	}
 }
-
