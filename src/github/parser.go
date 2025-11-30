@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"sort"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/gosimple/slug"
 	"github.com/ogri-la/strongbox-catalogue-builder-go/src/types"
-	"sort"
 )
 
 const (
@@ -139,7 +140,14 @@ func (p *Parser) parseCSVRow(record []string, headerIndex map[string]int) (types
 		return string(gameTrackList[i]) < string(gameTrackList[j])
 	})
 
+	// Parse download count
 	downloadCount := 0
+	downloadsStr := getField("downloads")
+	if downloadsStr != "" {
+		if parsed, err := strconv.Atoi(downloadsStr); err == nil {
+			downloadCount = parsed
+		}
+	}
 
 	// Create slugified name - replace underscores with hyphens for consistency with Clojure version
 	slugifiedName := strings.ReplaceAll(slug.Make(name), "_", "-")

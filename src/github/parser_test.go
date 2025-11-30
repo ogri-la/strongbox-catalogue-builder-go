@@ -44,8 +44,8 @@ func TestParseCSV(t *testing.T) {
 	if addon1.Description != "Allows filtering of premade applicants using advanced filter expressions." {
 		t.Errorf("Expected description, got '%s'", addon1.Description)
 	}
-	if addon1.DownloadCount == nil || *addon1.DownloadCount != 0 {
-		t.Errorf("Expected download count 0, got %v", addon1.DownloadCount)
+	if addon1.DownloadCount == nil || *addon1.DownloadCount != 34076 {
+		t.Errorf("Expected download count 34076, got %v", addon1.DownloadCount)
 	}
 	if len(addon1.TagList) != 0 {
 		t.Errorf("Expected empty tag list, got %v", addon1.TagList)
@@ -71,6 +71,9 @@ func TestParseCSV(t *testing.T) {
 	if addon2.Description != "" {
 		t.Errorf("Expected empty description, got '%s'", addon2.Description)
 	}
+	if addon2.DownloadCount == nil || *addon2.DownloadCount != 12345 {
+		t.Errorf("Expected download count 12345, got %v", addon2.DownloadCount)
+	}
 
 	// Game tracks should be sorted alphabetically
 	expectedTracks := []types.GameTrack{types.ClassicTrack, types.ClassicTBCTrack, types.RetailTrack}
@@ -83,7 +86,7 @@ func TestParseCSV(t *testing.T) {
 		}
 	}
 
-	// Test fifth addon - has description with comma
+	// Test fifth addon - has description with comma and high download count
 	addon5 := addons[4]
 	if addon5.Name != "chatcleaner" {
 		t.Errorf("Expected name 'chatcleaner', got '%s'", addon5.Name)
@@ -91,6 +94,9 @@ func TestParseCSV(t *testing.T) {
 	expectedDesc := "Makes system chat messages prettier and tidier, and reduces the need for multiple chat windows."
 	if addon5.Description != expectedDesc {
 		t.Errorf("Expected description '%s', got '%s'", expectedDesc, addon5.Description)
+	}
+	if addon5.DownloadCount == nil || *addon5.DownloadCount != 541101 {
+		t.Errorf("Expected download count 541101, got %v", addon5.DownloadCount)
 	}
 }
 
