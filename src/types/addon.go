@@ -8,6 +8,7 @@ type GameTrack string
 const (
 	RetailTrack       GameTrack = "retail"
 	ClassicTrack      GameTrack = "classic"
+	ForeverTrack      GameTrack = "forever"
 	ClassicTBCTrack   GameTrack = "classic-tbc"
 	ClassicWotLKTrack GameTrack = "classic-wotlk"
 	ClassicCataTrack  GameTrack = "classic-cata"
@@ -15,7 +16,7 @@ const (
 )
 
 var AllGameTracks = []GameTrack{
-	RetailTrack, ClassicTrack, ClassicTBCTrack,
+	RetailTrack, ClassicTrack, ForeverTrack, ClassicTBCTrack,
 	ClassicWotLKTrack, ClassicCataTrack, ClassicMistsTrack,
 }
 

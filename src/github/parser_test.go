@@ -110,6 +110,7 @@ func TestGuessGameTrack(t *testing.T) {
 		{"retail", "retail", types.RetailTrack},
 		{"classic", "classic", types.ClassicTrack},
 		{"vanilla", "vanilla", types.ClassicTrack},
+		{"forever", "forever", types.ForeverTrack},
 		{"bcc", "bcc", types.ClassicTBCTrack},
 		{"tbc", "tbc", types.ClassicTBCTrack},
 		{"wrath", "wrath", types.ClassicWotLKTrack},

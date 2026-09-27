@@ -41,6 +41,28 @@ func TestValidateCatalogueFile(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name: "valid github catalogue with forever game track",
+			catalogueJSON: `{
+  "spec": {
+    "version": 2
+  },
+  "datestamp": "2025-10-04T00:00:00Z",
+  "total": 1,
+  "addon-summary-list": [
+    {
+      "source": "github",
+      "source-id": "owner/repo",
+      "name": "test-addon",
+      "label": "Test Addon",
+      "updated-date": "2024-08-01T19:55:21Z",
+      "game-track-list": ["classic", "forever"],
+      "url": "https://github.com/owner/repo"
+    }
+  ]
+}`,
+			wantErr: false,
+		},
+		{
 			name: "valid github catalogue without created-date",
 			catalogueJSON: `{
   "spec": {

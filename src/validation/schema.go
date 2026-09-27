@@ -12,6 +12,7 @@ import (
 var ValidGameTracks = []string{
 	string(types.RetailTrack),
 	string(types.ClassicTrack),
+	string(types.ForeverTrack),
 	string(types.ClassicTBCTrack),
 	string(types.ClassicWotLKTrack),
 	string(types.ClassicCataTrack),

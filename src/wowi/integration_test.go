@@ -230,7 +230,7 @@ func validateAddonData(t *testing.T, addon types.AddonData, context string) {
 	// Validate game tracks are known values
 	for track := range addon.GameTrackSet {
 		switch track {
-		case types.RetailTrack, types.ClassicTrack, types.ClassicTBCTrack,
+		case types.RetailTrack, types.ClassicTrack, types.ForeverTrack, types.ClassicTBCTrack,
 			types.ClassicWotLKTrack, types.ClassicCataTrack, types.ClassicMistsTrack:
 			// Valid tracks
 		default:

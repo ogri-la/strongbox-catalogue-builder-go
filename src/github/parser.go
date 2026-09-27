@@ -178,6 +178,8 @@ func guessGameTrack(flavor string) types.GameTrack {
 		return types.RetailTrack
 	case "classic", "vanilla":
 		return types.ClassicTrack
+	case "forever":
+		return types.ForeverTrack
 	case "bcc", "tbc":
 		return types.ClassicTBCTrack
 	case "wrath", "wotlk":
